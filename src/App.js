@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import AddBus from "./pages/AddBus";
+import Ticket from "./pages/Ticket";
+import ViewBus from "./pages/ViewBus";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import TicketBooking from "./pages/TicketBooking";
 
 function App() {
+  const [buses, setbuses] = useState([]);
+  useEffect(() => {
+    let url = "http://localhost:5000/addbuses";
+    axios
+      .get(url)
+      .then((res) => {
+        setbuses(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/ticket" element={<Ticket />} />
+        <Route path="/addbus" element={<AddBus />} />
+        <Route path="/view" element={<ViewBus bus={buses} />} />
+        <Route path="ticketBooking/:id" element={<TicketBooking />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
