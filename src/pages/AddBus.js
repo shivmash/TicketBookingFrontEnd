@@ -22,7 +22,7 @@ function AddBus() {
   };
   let handleSubmit = (event) => {
     //event handling function
-    let url = "http://localhost:5000/addbuses/add-bus";
+    let url = "https://ticketbookinsbackend.onrender.com/addbuses/add-bus";
     axios
       .post(url, userObg)
       .then((res) => {

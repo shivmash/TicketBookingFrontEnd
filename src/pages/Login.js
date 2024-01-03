@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
-
+import { useNavigate } from "react-router-dom";
 function Login() {
-  const [username, setusername] = useState();
+  const [username, setusername] = useState("");
   // const [password, setpassword] = useState();
-
-  const handleSubmit = () => {
-    const url = "http://localhost:5000/users/login";
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    const url = "https://ticketbookinsbackend.onrender.com/login/login";
     const loginobj = { username };
     axios
       .post(url, loginobj)
       .then((res) => {
+        console.log(res);
         alert(res.data);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
       });
+    event.preventDefault();
   };
 
   return (

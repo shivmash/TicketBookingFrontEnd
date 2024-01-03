@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../components/Viewstyle.css";   
+import "../components/Viewstyle.css";
 function ViewBusRow({ obj }) {
   return (
     <tr>

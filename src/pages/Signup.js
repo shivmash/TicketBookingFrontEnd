@@ -18,7 +18,7 @@ function Signup() {
   };
   let handleSubmit = (event) => {
     //event handling function
-    let url = "http://localhost:5000/users/create-user";
+    let url = "https://ticketbookinsbackend.onrender.com/users/create-user";
     axios
       .post(url, userObg)
       .then((res) => {

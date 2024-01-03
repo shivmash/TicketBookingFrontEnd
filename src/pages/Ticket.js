@@ -24,7 +24,7 @@ function Ticket() {
   };
   let handleSubmit = (event) => {
     //event handling function
-    let url = "http://localhost:5000/tickets/create-ticket";
+    let url = "https://ticketbookinsbackend.onrender.com/tickets/create-ticket";
     axios
       .post(url, ticketObg)
       .then((res) => {

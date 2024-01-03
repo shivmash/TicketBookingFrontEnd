@@ -10,7 +10,7 @@ function TicketBooking() {
   const [from, setfrom] = useState();
   const [to, setto] = useState();
   const handleSubmit = (event) => {
-    let url = "http://localhost:5000/tickets/create-ticket/";
+    let url = "https://ticketbookinsbackend.onrender.com/tickets/create-ticket/";
     let ticketObg = { userId, name, contactnumber, emailid, from, to };
     axios
       .post(url, ticketObg)

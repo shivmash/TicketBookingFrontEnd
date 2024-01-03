@@ -17,7 +17,7 @@ function Booking() {
   };
   let handleSubmit = (event) => {
     //event handling function
-    let url = "http://localhost:5000/bookings/bookticket";
+    let url = "https://ticketbookinsbackend.onrender.com/bookings/bookticket";
     axios
       .post(url, ticketObg)
       .then((res) => {
